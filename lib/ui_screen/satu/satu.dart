@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbaru1/ui_screen/dua/dua.dart';
+import 'package:flutterbaru1/ui_screen/home/home.dart';
+import 'package:states_rebuilder/scr/state_management/listeners/on_reactive.dart';
 // import 'package:flutterbaru/ui_screen/dua/dua.dart';
 // import 'package:flutterbaru1/ui_screen/tiga/tiga.dart';
 
@@ -17,6 +19,34 @@ class Satu extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            OnReactive(
+              () => Text(counter.state.toString()),
+            ),
+
+            ElevatedButton(
+              onPressed: () {
+                counter.state = counter.state + 1;
+                print(counter.state);
+              },
+              child: const Text(
+                "Tambah",
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                counter.state = counter.state - 1;
+                print(counter.state);
+              },
+              child: const Text(
+                "Kurang",
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             ElevatedButton(
               onPressed: () {
                 print('lanjut ke page 2');
@@ -31,6 +61,9 @@ class Satu extends StatelessWidget {
               child: const Text(
                 "Add",
               ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             // const SizedBox(
             //   height: 10,
